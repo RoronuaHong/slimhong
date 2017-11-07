@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "hotnode app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "hotnode": "^0.0.8",
+    "mongodb": "^2.2.33",
+    "mongoskin": "^2.1.0"
+  }
+}
