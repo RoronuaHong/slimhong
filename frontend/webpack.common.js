@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const glob = require("glob");
+const ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 
 //设置路径
 const distPath = path.resolve(__dirname, "dist");
@@ -158,6 +159,12 @@ const config = {
         new ExtractTextPlugin({
             filename: "[name].[hash].bundle.css",
             allChunks: true
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, 'sw.js'),
+            exclude: [
+                path.join(__dirname, "node_modules")
+            ]
         })
     ]
 }
