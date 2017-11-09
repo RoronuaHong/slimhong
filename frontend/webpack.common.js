@@ -22,23 +22,24 @@ const config = {
     },
     module: {
         rules: [
-            /*将ES6转化为ES5*/
+            /*将ES6转化为ES5、JSX转换为js*/
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: [
                     path.join(__dirname, "node_modules")
                 ],
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: ["env"],
-                            plugins: [
-                                "transform-runtime"
-                            ]
-                        }
-                    }
-                ]
+                use: ["babel-loader"]
+                // use: [
+                //     {
+                //         loader: "babel-loader",
+                //         options: {
+                //             presets: ["env"],
+                //             plugins: [
+                //                 "transform-runtime"
+                //             ]
+                //         }
+                //     }
+                // ]
             },
             /*压缩css*/
             {
