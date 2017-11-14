@@ -114,7 +114,7 @@ const config = {
                             }
                         },
                         {
-                            loader: "scss-loader"
+                            loader: "sass-loader"
                         },
                         /*自动配置前缀*/
                         {

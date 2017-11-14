@@ -1,11 +1,23 @@
 import React, { Component } from "react";
+import {
+    Grid,
+    Row,
+    Col
+} from  "react-bootstrap";
+import Profile from "./profile";
+
+import "../../scss/resume.scss";
 
 class MyResume extends Component {
     render() {
         return (
-            <div>
-                <h1>It's my resume.</h1>
-            </div>
+            <Grid>
+                <Row className="show-grid">
+                    <Col xs={ 12 } md={ 3 }>
+                        <Profile />
+                    </Col>
+                </Row>
+            </Grid>
         );
     }
 }
