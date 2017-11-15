@@ -3,18 +3,29 @@ import {
     Grid,
     Row,
     Col
-} from  "react-bootstrap";
+} from "react-bootstrap";
 import Profile from "./profile";
+import Skills from "./skills";
 
-import "../../scss/resume.scss";
+import "../../scss/resume";
 
-class MyResume extends Component {
+class Resume extends Component {
+    constructor() {
+        super();
+        this.state = {
+
+        }
+    }
+
     render() {
         return (
             <Grid>
-                <Row className="show-grid">
-                    <Col xs={ 12 } md={ 3 }>
+                <Row>
+                    <Col xs={ 12 } md={ 6 }>
                         <Profile />
+                    </Col>
+                    <Col xs={ 6 } md={ 6 }>
+                        <Skills />
                     </Col>
                 </Row>
             </Grid>
@@ -22,4 +33,4 @@ class MyResume extends Component {
     }
 }
 
-export default MyResume;
+export default Resume;

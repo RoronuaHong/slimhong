@@ -1,11 +1,53 @@
 .profilebox {
-  overflow: hidden;
+  position: relative;
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  transition: transform 1s linear;
+  cursor: pointer;
+  &:hover {
+    .slimimg {
+      box-shadow: 0 0 80px #00baff;
+    }
+    .enterblog {
+      box-shadow: 0 0 80px #00baff;
+    }
+  }
+  .slimimg {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff;
+    transition: transform 1s linear;
+  }
   img {
     display: block;
     width: 100%;
     height: 100%;
   }
+}
+.enterblog {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 50px #fff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Shojumaru',cursive,Arial,serif;
+  background: linear-gradient(#999, #fff 0.1%, #999);
+  backface-visibility: hidden;
+  transition: transform 1s linear;
+  transform: rotateY(540deg);
+  border-radius: 50%;
+  color: #fff;
 }
