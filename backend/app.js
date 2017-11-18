@@ -1,14 +1,27 @@
 const express = require("express");
 const mongoskin = require("mongoskin");
 const app = express();
+const compress = require("Compression");
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
-app.use(express.compress());
-app.use(express.static(__dirname + "/html"));
-app.use(express.methodOverride());
-app.use(express.bodyParser());
+// app.use(compress);
+// app.use(express.static(__dirname + ".html"));
+// app.use(methodOverride);
+// app.use(bodyParser);
+
+//版本号
+const verson1 = "/v1";
+
+// 启动gzip压缩
+app.get("*.js", (req, res, next) => {
+    req.url = req.url + ".gz";
+    res.set("Content-Encoding", "gzip");
+    next();
+});
 
 //连接数据库
-const db = mongoskin.db("mongodb://slimhong:a1234560@cluster0-shard-00-00-xge42.mongodb.net:27017/slimhong?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin", { safe: true });
+const db = mongoskin.db("mongodb://slimhong:a1234560@cluster0-shard-00-00-xge42.mongodb.net:27017/slimhong?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin");
 
 //设置跨域访问
 app.all("*", (req, res, next) => {
@@ -41,7 +54,7 @@ app.get("/", (req, res) => {
     res.send("My API");
 });
 
-app.get("/collections/:collectionName", (req, res) => {
+app.get(verson1 + "/:collectionName", (req, res) => {
     req.collection.find(
         {},
         {
@@ -57,11 +70,8 @@ app.get("/collections/:collectionName", (req, res) => {
 });
 
 //启动服务
-const server = app.listen(7713, () => {
-    const host = server.address().address;
-    const port = server.address().port;
-
-    console.log("Example are listening at http://192.168.0.107", host);
+app.listen(7713, () => {
+    console.log("Example are listening at http://192.168.0.107:7713");
 });
 
 module.export = app;

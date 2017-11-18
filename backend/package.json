@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
     "express": "^4.16.2",
     "hotnode": "^0.0.8",
+    "method-override": "^2.3.10",
     "mongodb": "^2.2.33",
     "mongoskin": "^2.1.0"
   }
