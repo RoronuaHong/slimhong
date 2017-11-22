@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import List from "./list";
 
 class SkillList extends Component {
     constructor(props) {
@@ -9,13 +10,21 @@ class SkillList extends Component {
     }
 
     render() {
+        var arrs = [0, 1, 2, 3, 4];
+
         return (
             <ul className="skilllist">
-                <li>JavaScript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Library</li>
-                <li>Others</li>
+                {
+                    arrs.map((value, key) => {
+                        return (
+                            <li
+                            key={key}
+                            >
+                                value
+                            </li>
+                        )
+                    })
+                }
             </ul>
         );
     }

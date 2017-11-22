@@ -7,6 +7,7 @@ import {
     Redirect
 } from "react-router-dom";
 import { Provider } from "react-redux";
+import "isomorphic-fetch";
 
 import NoMatch from "../components/PageNotFound";
 import App from "../components/App";
@@ -16,6 +17,10 @@ import Resume from "../components/resume/index";
 const supportsHistory = "pushState" in window.location;
 
 /*设置基础的url路径*/
+
+/*定义API的接口*/
+const api = "http://192.168.0.107:7713/";
+const version = "v1/";
 
 /*配置路由*/
 const router = [
@@ -30,7 +35,7 @@ const myRouter = ({ store }) => (
         <div>
             <Switch>
                 <Route exact path="/index" component={ App } />
-                <Route exact path="/resume" component={ Resume } />
+                <Route exact path="/resume/:user" component={ Resume } />
                 <Redirect from="/" to="/index" />
                 <Route component={ NoMatch } />
             </Switch>
